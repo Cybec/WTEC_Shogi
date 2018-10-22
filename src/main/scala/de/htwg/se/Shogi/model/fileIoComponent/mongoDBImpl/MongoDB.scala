@@ -54,8 +54,7 @@ class MongoDB extends DAOInterface {
         val secondPlayer = false
         val newBoard = board.setContainer(
           getConqueredPieces((json \\ "conquered_pieces1").toArray, firstPlayer),
-          getConqueredPieces((json \\ "conquered_pieces2").toArray, secondPlayer)
-        )
+          getConqueredPieces((json \\ "conquered_pieces2").toArray, secondPlayer))
         Some((newBoard, state, player1, player2))
       case _ => None
     }

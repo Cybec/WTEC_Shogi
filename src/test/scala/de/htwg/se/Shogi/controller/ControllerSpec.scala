@@ -43,8 +43,7 @@ class ControllerSpec extends WordSpec with Matchers {
         controller.movePiece((0, 5), (0, 4)) should be(MoveResult.validMove) // player_2
         controller.getContainer should be((
           List(),
-          List(PieceFactory.apply(PiecesEnum.Pawn, player_2.first))
-        ))
+          List(PieceFactory.apply(PiecesEnum.Pawn, player_2.first))))
       }
     }
     "called setContainer" should {
@@ -54,8 +53,7 @@ class ControllerSpec extends WordSpec with Matchers {
         controller.setContainer(List(pawn), List(pawn))
         controller.getContainer should be(
           List(PieceFactory.apply(PiecesEnum.Pawn, player_1.first)),
-          List(PieceFactory.apply(PiecesEnum.Pawn, player_1.first))
-        )
+          List(PieceFactory.apply(PiecesEnum.Pawn, player_1.first)))
       }
     }
 
@@ -110,8 +108,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "|     |     |     |     |     |     |     |     |     | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
     }
 
@@ -140,8 +137,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
     }
 
@@ -173,8 +169,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
     }
 
@@ -209,8 +204,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: B     \n"
-        )
+            "Captured: B     \n")
       }
     }
 
@@ -459,8 +453,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: P     \n"
-        )
+            "Captured: P     \n")
       }
       "return a List of Moves a Conquered Pawn of each player can make if not in column of King" in {
         controller.createNewBoard()
@@ -497,8 +490,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: P     \n"
-        )
+            "Captured: P     \n")
       }
     }
 
@@ -539,8 +531,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "|     | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: P     \n"
-        )
+            "Captured: P     \n")
 
         controller.movePiece((0, 4), (0, 6)) should be(MoveResult.validMove) // player_1
         controller.movePiece((1, 7), (0, 6)) should be(MoveResult.validMove) // player_2
@@ -572,8 +563,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "|     | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: P     L     \n"
-        )
+            "Captured: P     L     \n")
       }
     }
 
@@ -617,8 +607,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: P     B     \n"
-        )
+            "Captured: P     B     \n")
 
         controller.movePiece((1, 6), (1, 5)) should be(MoveResult.validMove) // player_2
         controller.movePiece((2, 2), (2, 3)) should be(MoveResult.validMove) // player_1
@@ -654,8 +643,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: P     B     P     \n"
-        )
+            "Captured: P     B     P     \n")
       }
     }
 
@@ -702,8 +690,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
 
       "be false when a non existing piece wants to be moved" in {
@@ -753,8 +740,7 @@ class ControllerSpec extends WordSpec with Matchers {
           Array(knight1, rook1, pawn1, empty, empty, empty, pawn2, bishop2, knight2), Array(silverGeneral1, empty, pawn1, empty, empty, empty, pawn2, empty, silverGeneral2),
           Array(goldenGeneral1, empty, pawn1, empty, empty, empty, pawn2, empty, goldenGeneral2), Array(king1, empty, pawn1, empty, empty, empty, pawn2, empty, king2),
           Array(goldenGeneral1, empty, pawn1, empty, empty, empty, pawn2, empty, goldenGeneral2), Array(silverGeneral1, empty, pawn1, empty, empty, empty, pawn2, empty, silverGeneral2),
-          Array(knight1, bishop1, pawn1, empty, empty, empty, pawn2, rook2, knight2), Array(lancer1, empty, pawn1, empty, empty, empty, pawn2, empty, lancer2)
-        ))
+          Array(knight1, bishop1, pawn1, empty, empty, empty, pawn2, rook2, knight2), Array(lancer1, empty, pawn1, empty, empty, empty, pawn2, empty, lancer2)))
       }
     }
 
@@ -799,8 +785,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
       "return false if no command was done yet" in {
         newController.undoCommand should be(false)
@@ -834,8 +819,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
       "return true when no undo was done yet" in {
         controller.createNewBoard()
@@ -871,8 +855,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "|     |     |     |     |     |     |     |     |     | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
     }
     "called changeState" should {
@@ -930,8 +913,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
 
       "loading with unrealistic boardsize" in {
@@ -963,8 +945,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "|     |     |     |     |     |     |     |     |     | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
     }
   }
@@ -997,8 +978,7 @@ class ControllerSpec extends WordSpec with Matchers {
             "<br>&nbsp|&nbspL&nbsp&nbsp&nbsp|&nbspKN&nbsp&nbsp|&nbspSG&nbsp&nbsp|&nbspGG&nbsp&nbsp|&nbspK&nbsp&nbsp&nbsp|&nbspGG&nbsp&nbsp|&nbspSG&nbsp&nbsp|&nbspKN&nbsp&nbsp|&nbspL&nbsp&nbsp&nbsp|&nbsp	i" +
             "<br>---------------------------------------------------------" +
             "<br>Captured:&nbsp" +
-            "<br></p>"
-        )
+            "<br></p>")
       }
     }
   }

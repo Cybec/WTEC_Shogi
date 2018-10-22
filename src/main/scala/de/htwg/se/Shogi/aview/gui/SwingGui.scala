@@ -136,8 +136,7 @@ class SwingGui(controller: ControllerInterface) extends Frame {
     Dialog.showConfirmation(
       parent = null,
       title = "Exit",
-      message = "Are you sure you want to quit?"
-    ) match {
+      message = "Are you sure you want to quit?") match {
       case Dialog.Result.Ok => System.exit(0)
       case _ => ()
     }
@@ -202,8 +201,7 @@ class SwingGui(controller: ControllerInterface) extends Frame {
         tempArray(col)(row),
         container = false,
         (col, row),
-        if (boardPanel.size.width < 1000 || boardPanel.size.height < 800) "50x50" else "100x100"
-      )
+        if (boardPanel.size.width < 1000 || boardPanel.size.height < 800) "50x50" else "100x100")
     }
   }
 
@@ -283,8 +281,7 @@ class SwingGui(controller: ControllerInterface) extends Frame {
         contents.head,
         "Do you want to promote your piece?",
         optionType = Dialog.Options.YesNo,
-        title = "Promotion"
-      )
+        title = "Promotion")
 
       if (res == Dialog.Result.Ok) {
         controller.promotePiece(desPos._1, desPos._2)
@@ -297,8 +294,7 @@ class SwingGui(controller: ControllerInterface) extends Frame {
       contents.head,
       "You Won! Do you want to start a new game?",
       optionType = Dialog.Options.YesNo,
-      title = "End"
-    )
+      title = "End")
     if (res == Dialog.Result.Ok) {
       controller.createNewBoard()
     } else {

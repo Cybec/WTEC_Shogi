@@ -58,8 +58,7 @@ class XmlFileIOSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
       "reload an board(small) with in the state it was saved" in {
         val currentPlayerIsFirst = true
@@ -94,8 +93,7 @@ class XmlFileIOSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
 
       "reload an board(tiny) with the state it was saved" in {
@@ -131,8 +129,7 @@ class XmlFileIOSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
 
       "getBoardBySize will return None if no default board size is given" in {

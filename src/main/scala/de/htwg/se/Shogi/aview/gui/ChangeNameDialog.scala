@@ -16,8 +16,7 @@ class ChangeNameDialog() extends Dialog {
     new JLabel(p1DefaultName),
     player1NameTextBox,
     new JLabel(p2DefaultName),
-    player2NameTextBox
-  )
+    player2NameTextBox)
 
   def getNames: (String, String) = (player1NameTextBox.getText(), player2NameTextBox.getText())
 

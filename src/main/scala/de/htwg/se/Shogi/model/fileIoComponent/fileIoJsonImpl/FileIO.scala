@@ -36,8 +36,7 @@ class FileIO extends DAOInterface {
           val secondPlayer = false
           val newBoard = board.setContainer(
             getConqueredPieces((json \\ "playerFirstConquered").toArray, firstPlayer),
-            getConqueredPieces((json \\ "playerSecondConquered").toArray, secondPlayer)
-          )
+            getConqueredPieces((json \\ "playerSecondConquered").toArray, secondPlayer))
           Some((newBoard, state, player1, player2))
         case _ => None
       }
@@ -96,8 +95,7 @@ class FileIO extends DAOInterface {
   implicit val cellWrites = new Writes[PieceInterface] {
     def writes(piece: PieceInterface): JsObject = Json.obj(
       "pieceName" -> piece.toStringLong,
-      "firstPlayer" -> piece.isFirstOwner
-    )
+      "firstPlayer" -> piece.isFirstOwner)
   }
 
   override def save(board: BoardInterface, state: Boolean, player_1: Player, player_2: Player): Unit = {
@@ -124,11 +122,7 @@ class FileIO extends DAOInterface {
             Json.obj(
               "row" -> row,
               "col" -> col,
-              "piece" -> Json.toJson(board.cell(col, row))
-            )
-          }
-        )
-      )
-    )
+              "piece" -> Json.toJson(board.cell(col, row)))
+          })))
   }
 }

@@ -95,8 +95,7 @@ class BoardSpec extends WordSpec with Matchers {
 
         board.getContainer should be((
           ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_1.first), PieceFactory.apply(PiecesEnum.King, player_1.first)),
-          ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first))
-        ))
+          ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first))))
       }
     }
   }
@@ -122,8 +121,7 @@ class BoardSpec extends WordSpec with Matchers {
 
         board.getContainer should be((
           ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_1.first), PieceFactory.apply(PiecesEnum.Lancer, player_1.first), PieceFactory.apply(PiecesEnum.King, player_1.first), PieceFactory.apply(PiecesEnum.King, player_1.first)),
-          ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first))
-        ))
+          ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first))))
 
         board.getFromPlayerContainer(player_1) {
           PieceFactory.isInstanceOfPiece(PiecesEnum.Lancer, _)
@@ -145,8 +143,7 @@ class BoardSpec extends WordSpec with Matchers {
 
         board.getContainer should be((
           ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_1.first), PieceFactory.apply(PiecesEnum.King, player_1.first), PieceFactory.apply(PiecesEnum.King, player_1.first)),
-          ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first))
-        ))
+          ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first))))
 
         PieceFactory.isInstanceOfPiece(PiecesEnum.Lancer, wantedPiece_0) should be(true)
         PieceFactory.isInstanceOfPiece(PiecesEnum.King, wantedPiece_1) should be(true)
@@ -170,8 +167,7 @@ class BoardSpec extends WordSpec with Matchers {
 
         board.getContainer should be((
           ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_1.first), PieceFactory.apply(PiecesEnum.Lancer, player_1.first), PieceFactory.apply(PiecesEnum.King, player_1.first), PieceFactory.apply(PiecesEnum.King, player_1.first)),
-          ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first))
-        ))
+          ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first))))
 
         board.getFromPlayerContainer(player_1) {
           PieceFactory.isInstanceOfPiece(PiecesEnum.King, _)
@@ -193,8 +189,7 @@ class BoardSpec extends WordSpec with Matchers {
 
         board.getContainer should be((
           ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_1.first), PieceFactory.apply(PiecesEnum.Lancer, player_1.first), PieceFactory.apply(PiecesEnum.King, player_1.first)),
-          ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first))
-        ))
+          ListBuffer(PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.Lancer, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first), PieceFactory.apply(PiecesEnum.King, player_2.first))))
 
         PieceFactory.isInstanceOfPiece(PiecesEnum.King, wantedPiece_0) should be(true)
         PieceFactory.isInstanceOfPiece(PiecesEnum.EmptyPiece, wantedPiece_1) should be(true)
@@ -277,8 +272,7 @@ class BoardSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "|     |     |     |     |     |     |     |     |     | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: P     L     \n"
-        )
+            "Captured: P     L     \n")
       }
     }
   }
@@ -309,8 +303,7 @@ class BoardSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "|     |     |     |     |     |     |     |     |     | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
       }
     }
 

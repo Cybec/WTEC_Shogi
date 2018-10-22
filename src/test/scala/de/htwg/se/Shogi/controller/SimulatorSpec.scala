@@ -18,7 +18,7 @@ import scala.concurrent.duration.Duration
 //noinspection ScalaStyle
 @RunWith(classOf[JUnitRunner])
 class SimulatorSpec extends TestKit(ActorSystem("MySystem")) with ImplicitSender
-    with WordSpecLike with Matchers with BeforeAndAfterAll {
+  with WordSpecLike with Matchers with BeforeAndAfterAll {
   "An Simulation actor" must {
     val injector: Injector = Guice.createInjector(new ShogiModule)
     val controller: ControllerInterface = injector.getInstance(classOf[ControllerInterface])

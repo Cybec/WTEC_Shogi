@@ -28,8 +28,7 @@ class FileIO extends DAOInterface {
         val secondPlayer = false
         val newBoard = board.setContainer(
           getConqueredPieces(file \\ "board" \ "playerFirstConquered", firstPlayer),
-          getConqueredPieces(file \\ "board" \ "playerSecondConquered", secondPlayer)
-        )
+          getConqueredPieces(file \\ "board" \ "playerSecondConquered", secondPlayer))
         Some((newBoard, state, player1, player2))
       case _ => None
     }

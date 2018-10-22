@@ -1,3 +1,5 @@
+package de.htwg.se.Shogi.model.fileIoComponentSpecs
+
 import de.htwg.se.Shogi.model.fileIoComponent.slickDBImpl
 import de.htwg.se.Shogi.model.fileIoComponent.slickDBImpl.{ DBQuery, PieceOnBoardProfile, PlayerProfile }
 import org.junit.runner.RunWith

@@ -10,10 +10,9 @@ import de.htwg.se.Shogi.model.playerComponent.Player
 class BoardInj @Inject() (@Named("DefaultSize") boardSize: Int) extends Board(boardSize, PieceFactory.getEmptyPiece)
 
 case class Board(
-    board: Vector[Vector[PieceInterface]],
-    containerPlayer_0: List[PieceInterface],
-    containerPlayer_1: List[PieceInterface]
-) extends BoardInterface {
+  board: Vector[Vector[PieceInterface]],
+  containerPlayer_0: List[PieceInterface],
+  containerPlayer_1: List[PieceInterface]) extends BoardInterface {
   override def createNewBoard(): BoardInterface = new Board(size, PieceFactory.getEmptyPiece)
 
   def this(size: Int, filling: PieceInterface) =

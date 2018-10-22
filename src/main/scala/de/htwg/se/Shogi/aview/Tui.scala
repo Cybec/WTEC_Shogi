@@ -24,16 +24,14 @@ trait State {
 
   private val menuMapStart = Map(
     "q" -> "quit",
-    "n" -> "new"
-  )
+    "n" -> "new")
   private val menuMapInGame = Map(
     "q" -> "quit",
     "n" -> "new",
     "mv [0-9][a-i] [0-9][a-i]" -> "move [0-9][a-i] to [0-9][a-i]",
     "pmv [0-9][a-i]" -> "possible moves of [0-9][a-i]",
     "mvcp [piece abbreviation] [0-9][a-i]" -> "move [piece abbreviation] to [0-9][a-i]",
-    "pmvcp [piece abbreviation]" -> "possible moves of [piece abbreviation]"
-  )
+    "pmvcp [piece abbreviation]" -> "possible moves of [piece abbreviation]")
 }
 
 class Tui(controller: ControllerInterface) extends Reactor with State with LazyLogging {
@@ -170,8 +168,7 @@ class Tui(controller: ControllerInterface) extends Reactor with State with LazyL
     'f' -> 5,
     'g' -> 6,
     'h' -> 7,
-    'i' -> 8
-  )
+    'i' -> 8)
 
   def processInputLine(input: String): Unit = {
     if (input.length > 0) {

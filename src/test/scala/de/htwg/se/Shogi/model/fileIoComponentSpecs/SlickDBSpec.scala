@@ -67,8 +67,7 @@ class SlickDBSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: \n"
-        )
+            "Captured: \n")
         controller.movePiece((0, 2), (0, 3)) should be(MoveResult.validMove)
         controller.movePiece((0, 6), (0, 5)) should be(MoveResult.validMove)
         controller.movePiece((0, 3), (0, 4)) should be(MoveResult.validMove)
@@ -116,8 +115,7 @@ class SlickDBSpec extends WordSpec with Matchers {
             "---------------------------------------------------------\n " +
             "| L   | KN  | SG  | GG  | K   | GG  | SG  | KN  | L   | \ti\n" +
             "---------------------------------------------------------\n" +
-            "Captured: P     \n"
-        )
+            "Captured: P     \n")
       }
     }
   }

@@ -32,16 +32,13 @@ class ShogiModule extends AbstractModule with ScalaModule {
     //    bind[FileIOInterface].to[fileIoXmlImpl.FileIO]
 
     bind[BoardInterface].annotatedWithName(ShogiModuleConf.defaultBoard).toInstance(
-      new boardBaseImpl.BoardInj(ShogiModuleConf.defaultBoardSize)
-    )
+      new boardBaseImpl.BoardInj(ShogiModuleConf.defaultBoardSize))
 
     bind[BoardInterface].annotatedWithName(ShogiModuleConf.smallBoard).toInstance(
-      new boardBaseImpl.BoardInj(ShogiModuleConf.smallBoardSize)
-    )
+      new boardBaseImpl.BoardInj(ShogiModuleConf.smallBoardSize))
 
     bind[BoardInterface].annotatedWithName(ShogiModuleConf.tinyBoard).toInstance(
-      new boardBaseImpl.BoardInj(ShogiModuleConf.tinyBoardSize)
-    )
+      new boardBaseImpl.BoardInj(ShogiModuleConf.tinyBoardSize))
   }
 
 }
