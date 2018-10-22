@@ -1,7 +1,7 @@
 name := "htwg-scala-seed"
 organization := "de.htwg.se"
-version := "0.1.1"
-scalaVersion := "2.11.8"
+version := "3.0.0"
+scalaVersion := "2.11.12"
 scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8")
 
 resolvers += Resolver.jcenterRepo
