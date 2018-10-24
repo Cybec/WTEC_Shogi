@@ -23,8 +23,8 @@ class Controller @Inject() extends RoundState with ControllerInterface {
   var player_1: Player = Player("Player1", first = true)
   var player_2: Player = Player("Player2", first = false)
   // TODO: Actorsystem im Controller?
-  val system = ActorSystem("MySystem")
-  val actor = system.actorOf(Props[Simulator], "SimluationActor")
+  //val system = ActorSystem("MySystem")
+  //val actor = system.actorOf(Props[Simulator], "SimluationActor")
 
   private val undoManager = new UndoManager
 
@@ -197,7 +197,7 @@ class Controller @Inject() extends RoundState with ControllerInterface {
   override def setCurrentStat(newState: RoundState): Unit = currentState = newState
 
   override def startSimulation: Unit = {
-    actor ! Simulator.Simulate(this)
+    //actor ! Simulator.Simulate(this)
   }
 
   override def boardToHtml: String = board.toHtml
