@@ -1,7 +1,7 @@
 package de.htwg.se.Shogi
 
-import com.google.inject.{ Guice, Injector }
-import de.htwg.se.Shogi.aview.{  Tui }
+import com.google.inject.{Guice, Injector}
+import de.htwg.se.Shogi.aview.{Tui}
 import de.htwg.se.Shogi.controller.controllerComponent.ControllerInterface
 import de.htwg.se.Shogi.controller.controllerComponent.controllerBaseImpl.UpdateAll
 
@@ -12,9 +12,9 @@ object Shogi extends Publisher {
   val injector: Injector = Guice.createInjector(new ShogiModule)
   val controller: ControllerInterface = injector.getInstance(classOf[ControllerInterface])
   val tui = new Tui(controller)
-//  val webServer = new HttpServer(controller, tui)
-//  val gui = new SwingGui(controller)
-//  listenTo(gui)
+  //  val webServer = new HttpServer(controller, tui)
+  //  val gui = new SwingGui(controller)
+  //  listenTo(gui)
   controller.publish(new UpdateAll)
 
   def main(args: Array[String]): Unit = {
@@ -28,5 +28,5 @@ object Shogi extends Publisher {
     //webServer.unbind
   }
 
-//  reactions += { case _ => if (gui == null) System.exit(0) }
+  //  reactions += { case _ => if (gui == null) System.exit(0) }
 }
