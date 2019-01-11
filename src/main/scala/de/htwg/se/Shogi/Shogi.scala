@@ -1,8 +1,7 @@
 package de.htwg.se.Shogi
 
 import com.google.inject.{ Guice, Injector }
-import de.htwg.se.Shogi.aview.{ HttpServer, Tui }
-import de.htwg.se.Shogi.aview.gui.SwingGui
+import de.htwg.se.Shogi.aview.{  Tui }
 import de.htwg.se.Shogi.controller.controllerComponent.ControllerInterface
 import de.htwg.se.Shogi.controller.controllerComponent.controllerBaseImpl.UpdateAll
 
@@ -13,7 +12,7 @@ object Shogi extends Publisher {
   val injector: Injector = Guice.createInjector(new ShogiModule)
   val controller: ControllerInterface = injector.getInstance(classOf[ControllerInterface])
   val tui = new Tui(controller)
-  val webServer = new HttpServer(controller, tui)
+//  val webServer = new HttpServer(controller, tui)
 //  val gui = new SwingGui(controller)
 //  listenTo(gui)
   controller.publish(new UpdateAll)
@@ -26,7 +25,7 @@ object Shogi extends Publisher {
       input = scala.io.StdIn.readLine()
       tui.processInputLine(input)
     } while (input != "q")
-    webServer.unbind
+    //webServer.unbind
   }
 
 //  reactions += { case _ => if (gui == null) System.exit(0) }

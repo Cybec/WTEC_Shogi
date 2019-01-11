@@ -4,7 +4,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model._
 import akka.http.scaladsl.server.Directives._
-import akka.http.scaladsl.server.{Route, StandardRoute}
+import akka.http.scaladsl.server.{ Route, StandardRoute }
 import akka.stream.ActorMaterializer
 import de.htwg.se.Shogi.controller.controllerComponent._
 
@@ -42,65 +42,71 @@ class HttpServer(controller: ControllerInterface, tui: Tui) {
           }
         } ~
         path("pmv" / Segment) {
-          command => {
-            get {
-              val list = controller.getPossibleMoves(command.charAt(0).asDigit, command.charAt(1).asDigit)
-              movesToHtml(list)
+          command =>
+            {
+              get {
+                val list = controller.getPossibleMoves(command.charAt(0).asDigit, command.charAt(1).asDigit)
+                movesToHtml(list)
+              }
             }
-          }
         } ~
         path("mv" / Segment / Segment) {
-          (current, dest) => {
-            put {
-              controller.movePiece((current.charAt(0).asDigit, current.charAt(1).asDigit), (dest.charAt(0).asDigit, dest.charAt(1).asDigit)) match {
-                case MoveResult.invalidMove => invalidMoveToHtml
-                case MoveResult.validMove => {
-                  if (controller.promotable((dest.charAt(0).asDigit, dest.charAt(1).asDigit))) {
-                    complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "Do you want to promote your piece at destination " + dest + "? /y for yes!<br>" + controller.boardToHtml))
-                  } else {
-                    boardToHtml
+          (current, dest) =>
+            {
+              put {
+                controller.movePiece((current.charAt(0).asDigit, current.charAt(1).asDigit), (dest.charAt(0).asDigit, dest.charAt(1).asDigit)) match {
+                  case MoveResult.invalidMove => invalidMoveToHtml
+                  case MoveResult.validMove => {
+                    if (controller.promotable((dest.charAt(0).asDigit, dest.charAt(1).asDigit))) {
+                      complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "Do you want to promote your piece at destination " + dest + "? /y for yes!<br>" + controller.boardToHtml))
+                    } else {
+                      boardToHtml
+                    }
                   }
+                  case MoveResult.kingSlain => redirect("winner", StatusCodes.PermanentRedirect)
                 }
-                case MoveResult.kingSlain => redirect("winner", StatusCodes.PermanentRedirect)
               }
             }
-          }
         } ~
         path("mv" / Segment / Segment / "y") {
-          (_, dest) => {
-            put {
-              //TODO: Check if promotable only after move
-              controller.promotePiece((dest.charAt(0).asDigit, dest.charAt(1).asDigit))
-              boardToHtml
+          (_, dest) =>
+            {
+              put {
+                //TODO: Check if promotable only after move
+                controller.promotePiece((dest.charAt(0).asDigit, dest.charAt(1).asDigit))
+                boardToHtml
+              }
+            }
+        } ~
+        path("mv" / Segment / "shogi" / "winner") { _ =>
+          {
+            get {
+              //TODO: Check if King is actually slain
+              complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>YOU WON!!!!!!!!!!</h1>" + controller.boardToHtml))
             }
           }
-        } ~
-        path("mv" / Segment / "shogi" / "winner") { _ => {
-          get {
-            //TODO: Check if King is actually slain
-            complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "<h1>YOU WON!!!!!!!!!!</h1>" + controller.boardToHtml))
-          }
-        }
         } ~
         path("pmvcp" / Segment) {
-          conqueredPiece => {
-            get {
-              val list = controller.getPossibleMovesConqueredPiece(conqueredPiece)
-              movesToHtml(list)
+          conqueredPiece =>
+            {
+              get {
+                val list = controller.getPossibleMovesConqueredPiece(conqueredPiece)
+                movesToHtml(list)
+              }
             }
-          }
         } ~
         path("mvcp" / Segment / Segment) {
-          (conqueredPiece, dest) => {
-            put {
-              controller.moveConqueredPiece(conqueredPiece, (dest.charAt(0).asDigit, dest.charAt(1).asDigit)) match {
-                case true => boardToHtml
-                case false => {
-                  invalidMoveToHtml
+          (conqueredPiece, dest) =>
+            {
+              put {
+                controller.moveConqueredPiece(conqueredPiece, (dest.charAt(0).asDigit, dest.charAt(1).asDigit)) match {
+                  case true => boardToHtml
+                  case false => {
+                    invalidMoveToHtml
+                  }
                 }
               }
             }
-          }
         } ~
         pathEndOrSingleSlash {
           get {
