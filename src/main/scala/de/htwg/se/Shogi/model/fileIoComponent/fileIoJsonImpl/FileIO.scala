@@ -112,8 +112,8 @@ class FileIO extends DAOInterface {
         "state" -> JsBoolean(state),
         "playerFirstName" -> JsString(player_1.name),
         "playerSecondName" -> JsString(player_2.name),
-        "playerFirstConquered" -> Json.toJson(board.getContainer._1.distinct),
-        "playerSecondConquered" -> Json.toJson(board.getContainer._2.distinct),
+        "playerFirstConquered" -> Json.toJson(board.getContainer._1),
+        "playerSecondConquered" -> Json.toJson(board.getContainer._2),
         "cell" -> Json.toJson(
           for {
             col <- 0 until board.size

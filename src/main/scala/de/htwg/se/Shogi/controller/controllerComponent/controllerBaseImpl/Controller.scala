@@ -141,12 +141,12 @@ class Controller @Inject() extends RoundState with ControllerInterface {
 
   override def movePiece(currentPos: (Int, Int), destination: (Int, Int)): MoveResult.Value = {
     val result: MoveResult.Value = currentState.movePiece(currentPos, destination)
-    publish(new UpdateAll)
     if (result == MoveResult.validMove ||
       result == MoveResult.kingSlain ||
       result == MoveResult.validMoveContainer) {
       currentState.changeState()
     }
+    publish(new UpdateAll)
     result
   }
 
